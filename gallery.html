@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | MIS Club</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .gallery-header {
+            padding-top: 150px;
+            padding-bottom: 50px;
+            text-align: center;
+        }
+
+        .gallery-albums {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .album-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .album-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .album-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .album-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .album-count {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .album-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .album-card:hover .album-icon {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        /* Modal for images (simplified for now) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-gold);
+        }
+
+        .modal-img-placeholder {
+            background: #222;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border: 1px solid #333;
+        }
+
+        .coming-soon-text {
+            text-align: center;
+            color: var(--accent-gold);
+            grid-column: 1 / -1;
+            padding: 50px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration:none;"><span class="logo-text"><img src="logo.png"
+                        alt="MIS Club Logo"></span></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#clubs">Clubs</a></li>
+            <li><a href="#" class="active">Gallery</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header class="gallery-header">
+            <h1 class="fade-in-up">Club <span class="gold-text">Gallery</span></h1>
+            <p class="fade-in-up delay-1" style="color: var(--text-muted); margin-top: 10px;">Capturing the moments that
+                define us.</p>
+        </header>
+
+        <div class="gallery-albums fade-in-up delay-2">
+            <!-- MIST -->
+            <div class="album-card" onclick="openAlbum('MIST')">
+                <i class="fa-solid fa-newspaper album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">MIS Times</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+            <!-- Photography -->
+            <div class="album-card" onclick="openAlbum('Photography')">
+                <i class="fa-solid fa-camera album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">Photography</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+            <!-- AI -->
+            <div class="album-card" onclick="openAlbum('AI')">
+                <i class="fa-solid fa-brain album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">AI Club</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+            <!-- Music -->
+            <div class="album-card" onclick="openAlbum('Music')">
+                <i class="fa-solid fa-music album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">Music</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+            <!-- Drama -->
+            <div class="album-card" onclick="openAlbum('Drama')">
+                <i class="fa-solid fa-masks-theater album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">Drama</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+            <!-- British -->
+            <div class="album-card" onclick="openAlbum('British')">
+                <i class="fa-solid fa-landmark album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">British Club</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+            <!-- Psychology -->
+            <div class="album-card" onclick="openAlbum('Psychology')">
+                <i class="fa-solid fa-brain album-icon"></i>
+                <div class="album-overlay">
+                    <h3 class="album-title">Psychology</h3>
+                    <span class="album-count">View Collection</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Album Modal -->
+    <div id="galleryModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modalContent">
+            <!-- Images will be injected here -->
+        </div>
+    </div>
+
+    <script>
+        function openAlbum(clubName) {
+            const modal = document.getElementById('galleryModal');
+            const content = document.getElementById('modalContent');
+            modal.style.display = "block";
+
+            // Simulating loading images
+            content.innerHTML = '<div class="coming-soon-text">Loading ' + clubName + ' moments...</div>';
+
+            setTimeout(() => {
+                // In a real app, this would fetch images. For now, we show placeholders.
+                let html = `<h2 style="grid-column: 1/-1; text-align:center; color:#fff; margin-bottom:20px;">${clubName} Gallery</h2>`;
+
+                // Generate 8 placeholders
+                for (let i = 0; i < 8; i++) {
+                    html += `
+                        <div class="modal-img-placeholder">
+                            <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                        </div>
+                    `;
+                }
+
+                content.innerHTML = html;
+            }, 500);
+        }
+
+        function closeModal() {
+            document.getElementById('galleryModal').style.display = "none";
+        }
+
+        // Close on outside click
+        window.onclick = function (event) {
+            const modal = document.getElementById('galleryModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
