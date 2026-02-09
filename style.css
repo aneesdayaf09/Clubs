@@ -168,6 +168,14 @@ body {
 .burger {
     display: none;
     cursor: pointer;
+    z-index: 1002;
+    /* Ensure burger is above the full-screen menu */
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: block;
+    }
 }
 
 .burger div {
@@ -439,6 +447,20 @@ body {
     height: 600px;
 }
 
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+        height: auto;
+        gap: 20px;
+    }
+
+    .gallery-item {
+        min-height: 250px;
+        /* Ensure height for mobile items */
+    }
+}
+
 .gallery-item {
     background: #111;
     border-radius: 20px;
@@ -573,6 +595,7 @@ body {
 }
 
 /* Multi-Page Refinements */
+/* Multi-Page Refinements */
 .club-hero {
     height: 70vh;
     background-attachment: fixed;
@@ -581,6 +604,31 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .club-hero {
+        height: 50vh;
+        /* Shorter hero on mobile */
+    }
+
+    .glass-panel {
+        padding: 40px 20px;
+        /* Reduced padding on mobile */
+    }
+
+    .club-leader-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .club-leader-card {
+        border-left: none;
+        border-top: 4px solid var(--accent-gold);
+        /* Top border for mobile stack */
+    }
 }
 
 .glass-panel {
@@ -794,6 +842,17 @@ body {
     /* Missing class restored! */
     .nav-links.nav-active {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.98);
+        z-index: 1001;
+        /* Ensure it's above everything */
     }
 
     .logo-text {
