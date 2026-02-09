@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS Club | Drama</title> <!-- Replace 'Club Name' -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS (Adjusted path) -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration:none; color:inherit;">
+                <span class="logo-text"><img src="../logo.png" alt="MIS Club Logo" style="height: 50px;"></span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#clubs">All Clubs</a></li>
+            <li><a href="#feed">Updates</a></li>
+            <li><a href="../index.html#events">Calendar</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Club Hero Section -->
+    <!-- 'club-hero-bg' class will be specific to each club for the background image -->
+    <header class="club-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="club-tag fade-in-up">Performing Arts</span>
+            <h1 class="fade-in-up delay-1">Drama Club</h1> <!-- Replace -->
+            <p class="fade-in-up delay-2">The stage is yours. Act, direct, inspire.</p>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="club-details section-padding">
+        <div class="container">
+            <div class="glass-panel">
+                <h2 class="section-title">About the <span class="gold-text">Club</span></h2>
+                <div class="details-content">
+                    <p>Unleashing creativity on stage. From acting and directing to set design, we bring stories to
+                        life. Join us to build confidence and express yourself through performance.</p>
+
+                    <!-- Club Leader Section -->
+                    <div class="club-leader-card">
+                        <div class="club-leader-avatar">
+                            <i class="fa-solid fa-user"
+                                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#666;"></i>
+                        </div>
+                        <div class="club-leader-info">
+                            <span class="club-leader-role">Club Leader</span>
+                            <h4>Student Name</h4>
+                            <p style="font-size:0.9rem; color:#aaa; margin:0;">In charge of club activities and events.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section id="feed" class="insta-section section-padding">
+        <div class="container">
+            <div class="insta-header">
+                <h2 class="section-title">Latest <span class="gold-text">Updates</span></h2>
+                <a href="#" class="view-all">View on Instagram <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="insta-grid">
+                <!-- Mock Post 1 -->
+                <div class="insta-post">
+                    <div class="post-overlay">
+                        <span><i class="fa-solid fa-heart"></i> 124</span>
+                        <span><i class="fa-solid fa-comment"></i> 8</span>
+                    </div>
+                    <img src="../tech.png" alt="Post 1"> <!-- Placeholder -->
+                </div>
+                <!-- Mock Post 2 -->
+                <div class="insta-post">
+                    <div class="post-overlay">
+                        <span><i class="fa-solid fa-heart"></i> 89</span>
+                        <span><i class="fa-solid fa-comment"></i> 12</span>
+                    </div>
+                    <img src="../arts.png" alt="Post 2">
+                </div>
+                <!-- Mock Post 3 -->
+                <div class="insta-post">
+                    <div class="post-overlay">
+                        <span><i class="fa-solid fa-heart"></i> 256</span>
+                        <span><i class="fa-solid fa-comment"></i> 34</span>
+                    </div>
+                    <img src="../tech.png" alt="Post 3">
+                </div>
+                <!-- Mock Post 4 -->
+                <div class="insta-post">
+                    <div class="post-overlay">
+                        <span><i class="fa-solid fa-heart"></i> 110</span>
+                        <span><i class="fa-solid fa-comment"></i> 5</span>
+                    </div>
+                    <img src="../arts.png" alt="Post 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>MIS<span class="gold-text">CLUB</span></h2>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 MIS Club. All Rights Reserved. | Made by <span
+                            style="color:var(--accent-gold); font-weight:600;">Anees Dayaf</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
